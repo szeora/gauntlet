@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b10ksu4v8k3rs"]
+
+[ext_resource type="Texture2D" uid="uid://bv017ax4tw4fq" path="res://Sundry/icon.svg" id="1_b4h43"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(261, 98)
+texture = ExtResource("1_b4h43")
