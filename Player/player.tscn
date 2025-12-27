@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://ven4leg3j6lo"]
+
+[ext_resource type="Script" uid="uid://duelut2l3awmt" path="res://Player/Scripts/player.gd" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://b7vpri3txwab1" path="res://Player/States/player_state_idle.gd" id="2_btcbx"]
+[ext_resource type="Script" uid="uid://dyr7e45n7uwqb" path="res://Player/States/player_state_run.gd" id="3_gwnis"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hvfyp"]
+size = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvfyp"]
+size = Vector2(32, 64)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_l8h54")
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = SubResource("PlaceholderTexture2D_hvfyp")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_hvfyp")
+debug_color = Color(0, 0.49019608, 1, 0.09803922)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, -32)
+position_smoothing_enabled = true
+
+[node name="Machine" type="Node" parent="."]
+
+[node name="Idle" type="Node" parent="Machine"]
+script = ExtResource("2_btcbx")
+
+[node name="Run" type="Node" parent="Machine"]
+script = ExtResource("3_gwnis")

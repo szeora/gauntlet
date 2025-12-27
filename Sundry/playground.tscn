@@ -1,9 +1,105 @@
-[gd_scene load_steps=2 format=3 uid="uid://b10ksu4v8k3rs"]
+[gd_scene load_steps=5 format=3 uid="uid://b10ksu4v8k3rs"]
 
-[ext_resource type="Texture2D" uid="uid://bv017ax4tw4fq" path="res://Sundry/icon.svg" id="1_b4h43"]
+[ext_resource type="PackedScene" uid="uid://ven4leg3j6lo" path="res://Player/player.tscn" id="1_b4h43"]
+
+[sub_resource type="Gradient" id="Gradient_f32kx"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b4h43"]
+gradient = SubResource("Gradient_f32kx")
+width = 32
+height = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0kih"]
+size = Vector2(32, 32)
 
 [node name="Playground" type="Node2D"]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(261, 98)
-texture = ExtResource("1_b4h43")
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Ground" type="Sprite2D" parent="Environment"]
+position = Vector2(173.00002, 326)
+scale = Vector2(33.5625, 5.125)
+texture = SubResource("GradientTexture2D_b4h43")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Ground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground/StaticBody2D"]
+shape = SubResource("RectangleShape2D_u0kih")
+
+[node name="Ground2" type="Sprite2D" parent="Environment"]
+position = Vector2(20.000002, 167.00005)
+scale = Vector2(2.1718752, 6.0625)
+texture = SubResource("GradientTexture2D_b4h43")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Ground2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_u0kih")
+
+[node name="Ground3" type="Sprite2D" parent="Environment"]
+position = Vector2(628.3273, 295.10712)
+rotation = -0.48188058
+scale = Vector2(12.367188, 9.01663)
+texture = SubResource("GradientTexture2D_b4h43")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Ground3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_u0kih")
+
+[node name="Ground4" type="Sprite2D" parent="Environment"]
+position = Vector2(377, 114)
+rotation = 0.10893956
+scale = Vector2(3.1944323, 0.8507205)
+texture = SubResource("GradientTexture2D_b4h43")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Ground4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_u0kih")
+
+[node name="Ground5" type="Sprite2D" parent="Environment"]
+position = Vector2(167.064, 90.76019)
+rotation = -0.088064015
+scale = Vector2(1.9435866, 0.8507205)
+texture = SubResource("GradientTexture2D_b4h43")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Ground5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground5/StaticBody2D"]
+shape = SubResource("RectangleShape2D_u0kih")
+
+[node name="Ground6" type="Sprite2D" parent="Environment"]
+position = Vector2(-332, 79)
+scale = Vector2(1.9435866, 11.144108)
+texture = SubResource("GradientTexture2D_b4h43")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Ground6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground6/StaticBody2D"]
+shape = SubResource("RectangleShape2D_u0kih")
+
+[node name="Ground7" type="Sprite2D" parent="Environment"]
+position = Vector2(160.22562, -115.000015)
+scale = Vector2(32.735893, 2.4470537)
+texture = SubResource("GradientTexture2D_b4h43")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Ground7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground7/StaticBody2D"]
+shape = SubResource("RectangleShape2D_u0kih")
+
+[node name="Ground8" type="Sprite2D" parent="Environment"]
+position = Vector2(738.09314, 102.920944)
+rotation = -0.4588286
+scale = Vector2(2.7116978, 16.434399)
+texture = SubResource("GradientTexture2D_b4h43")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Ground8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground8/StaticBody2D"]
+shape = SubResource("RectangleShape2D_u0kih")
+
+[node name="Player" parent="." instance=ExtResource("1_b4h43")]
+position = Vector2(238, 199)
