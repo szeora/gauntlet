@@ -15,6 +15,7 @@ func init() -> void:
 	pass
 
 func enter() -> void:
+	player.animation.play("run")
 	pass
 
 func exit() -> void:
@@ -23,11 +24,13 @@ func exit() -> void:
 func process(_delta: float) -> PlayerState:
 	if player.direction.x == 0:
 		return idle
+	elif player.direction.y > 0.5:
+		return crouch
 	return next_state
 
 func physics(_delta: float) -> PlayerState:
 	player.velocity.x = player.direction.x * player.move_speed
-	if player.is_on_floor() == false:
+	if not player.is_on_floor():
 		return fall
 	return next_state
 

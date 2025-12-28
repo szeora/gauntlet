@@ -20,6 +20,9 @@ func init() -> void:
 	pass
 
 func enter() -> void:
+	player.animation.play("jump")
+	player.animation.pause()
+	
 	player.gravity_multiplier = fall_gravity
 	if player.previous_state == jump:
 		coyote_timer = 0
@@ -34,11 +37,12 @@ func exit() -> void:
 func process(delta: float) -> PlayerState:
 	coyote_timer -= delta
 	buffer_timer -= delta
+	set_jump_frame()
 	return next_state
 
 func physics(_delta: float) -> PlayerState:
 	if player.is_on_floor():
-		if buffer_timer > 0:
+		if buffer_timer > 0 and Input.is_action_pressed("jump"):
 			return jump
 		return idle
 	
@@ -52,3 +56,12 @@ func handle_input(event: InputEvent) -> PlayerState:
 		else:
 			buffer_timer = buffer_time
 	return next_state
+
+# ==================================================================================================
+# OPERATIONS
+# ==================================================================================================
+
+func set_jump_frame() -> void:
+	var frame: float = remap(player.velocity.y, 0.0, player.terminal_speed, 0.5, 1.0)
+	player.animation.seek(frame, true)
+	pass

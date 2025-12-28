@@ -5,7 +5,8 @@ class_name Player
 # VARIABLES
 # ==================================================================================================
 
-@export var move_speed: float = 250.0
+@export var move_speed: float = 300.0
+@export var terminal_speed: float = 900.0
 
 var states: Array[PlayerState]
 var current_state: PlayerState: 
@@ -16,6 +17,12 @@ var previous_state: PlayerState:
 var direction: Vector2 = Vector2.ZERO
 var gravity: float = 980
 var gravity_multiplier: float = 1.0
+
+@onready var body: Sprite2D = $Body
+@onready var collision: CollisionShape2D = $Collision
+@onready var duck: CollisionShape2D = $Duck
+@onready var sensor: ShapeCast2D = $Sensor
+@onready var animation: AnimationPlayer = $Animation
 
 # ==================================================================================================
 # METHODS
@@ -32,6 +39,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta * gravity_multiplier
+	velocity.y = clampf(velocity.y, -1200.0, terminal_speed)
 	move_and_slide()
 	change_state(current_state.physics(delta))
 	pass
@@ -82,8 +90,15 @@ func change_state(new_state: PlayerState) -> void:
 	pass
 
 func update_direction() -> void:
-	#var previous_direction: Vector2 = direction
+	var previous_direction: Vector2 = direction
+	
 	var x_axis = Input.get_axis("left", "right")
 	var y_axis = Input.get_axis("up", "down")
 	direction = Vector2(x_axis, y_axis)
+	
+	if previous_direction.x != direction.x:
+		if direction.x < 0:
+			body.flip_h = true
+		elif direction.x > 0:
+			body.flip_h = false
 	pass
