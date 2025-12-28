@@ -5,6 +5,8 @@ class_name Player
 # VARIABLES
 # ==================================================================================================
 
+@export var move_speed: float = 250.0
+
 var states: Array[PlayerState]
 var current_state: PlayerState: 
 	get: return states.front()
@@ -13,6 +15,7 @@ var previous_state: PlayerState:
 
 var direction: Vector2 = Vector2.ZERO
 var gravity: float = 980
+var gravity_multiplier: float = 1.0
 
 # ==================================================================================================
 # METHODS
@@ -28,7 +31,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	velocity.y += gravity * delta
+	velocity.y += gravity * delta * gravity_multiplier
 	move_and_slide()
 	change_state(current_state.physics(delta))
 	pass
@@ -59,6 +62,7 @@ func initialize_states() -> void:
 	
 	change_state(current_state)
 	current_state.enter()
+	$Label.text = current_state.name
 	pass
 
 func change_state(new_state: PlayerState) -> void:
@@ -74,9 +78,12 @@ func change_state(new_state: PlayerState) -> void:
 	states.push_front(new_state)
 	current_state.enter()
 	states.resize(3)
+	$Label.text = current_state.name
 	pass
 
 func update_direction() -> void:
-	var previous_direction: Vector2 = direction
-	direction = Input.get_vector("left", "right", "up", "down")
+	#var previous_direction: Vector2 = direction
+	var x_axis = Input.get_axis("left", "right")
+	var y_axis = Input.get_axis("up", "down")
+	direction = Vector2(x_axis, y_axis)
 	pass

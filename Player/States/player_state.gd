@@ -9,6 +9,11 @@ class_name PlayerState
 var player: Player
 var next_state: PlayerState
 
+@onready var idle: PlayerStateIdle = %Idle
+@onready var run: PlayerStateRun = %Run
+@onready var jump: PlayerStateJump = %Jump
+@onready var fall: PlayerStateFall = %Fall
+
 # ==================================================================================================
 # METHODS
 # ==================================================================================================
