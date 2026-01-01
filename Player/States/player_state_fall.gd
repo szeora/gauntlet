@@ -32,6 +32,7 @@ func enter() -> void:
 
 func exit() -> void:
 	player.gravity_multiplier = 1.0
+	buffer_timer = 0
 	pass
 
 func process(delta: float) -> PlayerState:
@@ -42,7 +43,7 @@ func process(delta: float) -> PlayerState:
 
 func physics(_delta: float) -> PlayerState:
 	if player.is_on_floor():
-		if buffer_timer > 0 and Input.is_action_pressed("jump"):
+		if buffer_timer > 0:
 			return jump
 		return idle
 	
