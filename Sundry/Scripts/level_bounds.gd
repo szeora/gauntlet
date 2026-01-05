@@ -1,7 +1,7 @@
 @tool
 @icon("res://Sundry/Icons/level_bounds.svg")
 extends Node2D
-class_name Bounds
+class_name LevelBounds
 
 # ==================================================================================================
 # VARIABLES
