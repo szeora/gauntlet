@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv017ax4tw4fq"
-path="res://.godot/imported/icon.svg-7fa989b79c5ca35e8bc69e94303e5efe.ctex"
+uid="uid://8rwvmb5124i0"
+path="res://.godot/imported/level_bounds.svg-e52651bfe2ea50f1541df30f9964679a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sundry/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-7fa989b79c5ca35e8bc69e94303e5efe.ctex"]
+source_file="res://Sundry/Icons/level_bounds.svg"
+dest_files=["res://.godot/imported/level_bounds.svg-e52651bfe2ea50f1541df30f9964679a.ctex"]
 
 [params]
 

@@ -5,8 +5,8 @@ class_name Player
 # VARIABLES
 # ==================================================================================================
 
-@export var move_speed: float = 300.0
-@export var terminal_speed: float = 900.0
+@export var move_speed: float = 250.0
+@export var terminal_speed: float = 1000.0
 
 var states: Array[PlayerState]
 var current_state: PlayerState: 

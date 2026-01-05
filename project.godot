@@ -11,17 +11,17 @@ config_version=5
 [application]
 
 config/name="Gauntlet"
-run/main_scene="uid://b10ksu4v8k3rs"
+run/main_scene="uid://c4y0qbfftnhp7"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://Sundry/icon.svg"
+config/icon="res://Sundry/Icons/icon.svg"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/mode=3
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 
 [input]

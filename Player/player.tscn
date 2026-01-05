@@ -8,10 +8,10 @@
 [ext_resource type="Script" uid="uid://caox8xy08guos" path="res://Player/States/player_state_crouch.gd" id="6_fhl08"]
 [ext_resource type="Texture2D" uid="uid://bi34b6g0ofosx" path="res://Player/Visuals/mordred_spritesheet.png" id="7_vtle1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvfyp"]
-size = Vector2(24, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_od3ui"]
+size = Vector2(32, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhl08"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00tjw"]
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtle1"]
@@ -111,7 +111,9 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 0
+collision_mask = 3
 floor_snap_length = 3.0
 script = ExtResource("1_l8h54")
 
@@ -145,12 +147,12 @@ vframes = 4
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)
-shape = SubResource("RectangleShape2D_hvfyp")
+shape = SubResource("RectangleShape2D_od3ui")
 debug_color = Color(0, 0.49019608, 1, 0.09803922)
 
 [node name="Duck" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_fhl08")
+shape = SubResource("RectangleShape2D_00tjw")
 disabled = true
 debug_color = Color(0, 0.49019608, 1, 0.09803922)
 
@@ -161,7 +163,7 @@ target_position = Vector2(0, 8)
 collision_mask = 2
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -48)
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
