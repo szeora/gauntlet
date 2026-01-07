@@ -28,6 +28,13 @@ enum SIDE {LEFT, RIGHT, TOP, BOTTOM}
 # METHODS
 # ==================================================================================================
 
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	
+	area.body_entered.connect(_on_player_entered)
+	pass
+
 # ==================================================================================================
 # OPERATIONS
 # ==================================================================================================
@@ -50,4 +57,8 @@ func apply_area_settings() -> void:
 			area.scale.y = 1
 		else:
 			area.scale.y = -1
+	pass
+
+func _on_player_entered(_n: Node2D) -> void:
+	SceneManager.transition_scene(target_level, target_area, Vector2.ZERO, "left")
 	pass
