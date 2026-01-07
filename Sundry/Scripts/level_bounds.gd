@@ -7,8 +7,8 @@ class_name LevelBounds
 # VARIABLES
 # ==================================================================================================
 
-@export_range(640, 4096, 32, "suffix:px") var width: int = 640: set = _on_width_changed
-@export_range(360, 4096, 32, "suffix:px") var height: int = 360: set = _on_height_changed
+@export_range(640, 4096, 32, "suffix:px") var width: int = 640: set = _width_changed
+@export_range(360, 4096, 32, "suffix:px") var height: int = 360: set = _height_changed
 
 # ==================================================================================================
 # METHODS
@@ -43,12 +43,12 @@ func _draw() -> void:
 # OPERATIONS
 # ==================================================================================================
 
-func _on_width_changed(new_width) -> void:
+func _width_changed(new_width) -> void:
 	width = new_width
 	queue_redraw()
 	pass
 
-func _on_height_changed(new_height) -> void:
+func _height_changed(new_height) -> void:
 	height = new_height
 	queue_redraw()
 	pass
