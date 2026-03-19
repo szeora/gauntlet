@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ven4leg3j6lo"]
+[gd_scene load_steps=19 format=3 uid="uid://ven4leg3j6lo"]
 
 [ext_resource type="Script" uid="uid://duelut2l3awmt" path="res://Player/Scripts/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://b7vpri3txwab1" path="res://Player/States/player_state_idle.gd" id="2_btcbx"]
@@ -110,6 +110,18 @@ _data = {
 &"run": SubResource("Animation_00tjw")
 }
 
+[sub_resource type="Gradient" id="Gradient_vtle1"]
+offsets = PackedFloat32Array(0, 0.8448276)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_od3ui"]
+gradient = SubResource("Gradient_vtle1")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 collision_layer = 16
@@ -180,3 +192,8 @@ theme_override_font_sizes/font_size = 12
 text = "Label"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Light" type="PointLight2D" parent="."]
+position = Vector2(0, -32)
+energy = 0.25
+texture = SubResource("GradientTexture2D_od3ui")

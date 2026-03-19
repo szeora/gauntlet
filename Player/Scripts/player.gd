@@ -95,7 +95,6 @@ func change_state(new_state: PlayerState) -> void:
 
 func update_direction() -> void:
 	var previous_direction: Vector2 = direction
-	
 	var x_axis = Input.get_axis("left", "right")
 	var y_axis = Input.get_axis("up", "down")
 	direction = Vector2(x_axis, y_axis)

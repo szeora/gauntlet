@@ -61,5 +61,5 @@ func fade_direction(d: String) -> Vector2:
 func fade_screen(from: Vector2, to: Vector2) -> Signal:
 	fade.position = from
 	var tween: Tween = create_tween()
-	tween.tween_property(fade, "position", to, 0.25)
+	tween.tween_property(fade, "position", to, 0.5)
 	return tween.finished
